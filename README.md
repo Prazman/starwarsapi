@@ -15,7 +15,7 @@ Node.js server + npm
 - run *npm install* to install the dependencies
 - run *npm start* to start de server
 - Go to localhost:3000 on a local environment
-<<<<<<< HEAD
+
 
 ## Usage (production)
 ### Node.js
@@ -26,3 +26,6 @@ Node.js server + npm
 - run *npm run build*
 - copy the content of the build directory at the root of your server
 - Go to {SERVER_HOST}/index.html
+
+###More deployment options
+See https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment
