@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-
+/*
+Page selector component, works for both tables
+*/
 function PageSelector(props){
   let prevbutton
   let nextbutton
   console.log(props.prev)
+  //only add prev button if previous results exist
   if(props.prev){
     prevbutton = <button className="btn btn-default" value={props.prev} onClick={props.onButtonClicked} >Previous </button>
   }
@@ -19,7 +22,9 @@ function PageSelector(props){
           </div>
             )
 }
-
+/*
+Character table component
+*/
 class CharacterTable extends Component{
   constructor(props) {
     super(props);
@@ -54,11 +59,17 @@ class CharacterTable extends Component{
             </div>
     );
   }
+  /*
+  Initial load
+  */
   componentDidMount(){
            var apiURL="https://swapi.co/api/people";
            this.updateCharacterList(apiURL)
 
   }
+  /*
+  Fetch character list from SWAPI
+  */
   updateCharacterList(url,callback){
 
      var self = this
@@ -66,12 +77,17 @@ class CharacterTable extends Component{
     self.setState({people:response.data.results,next:response.data.next,prev:response.data.previous})
     });  
   }
+  /*
+  Change page when buttons are clicked
+  */
   onButtonClicked(event){
     var url = event.target.value;
     this.updateCharacterList(url);
   }
 }
-
+/*
+Vehicle table component
+*/
 class VehicleTable extends Component{
   constructor(props) {
     super(props);
@@ -108,11 +124,17 @@ class VehicleTable extends Component{
             </div>
     );
   }
+  /*
+  Initial load
+  */
   componentDidMount(){
            var apiURL="https://swapi.co/api/vehicles";
            this.updateVehicleList(apiURL)
 
   }
+  /*
+  Fetch vehicle list from SWAPI
+  */
   updateVehicleList(url,callback){
 
      var self = this
@@ -120,12 +142,17 @@ class VehicleTable extends Component{
     self.setState({vehicles:response.data.results,next:response.data.next,prev:response.data.previous})
     });  
   }
+  /*
+  handles page change
+  */
   onButtonClicked(event){
     var url = event.target.value;
     this.updateVehicleList(url);
   }
 }
-
+/*
+Main app component
+*/
 class App extends Component {
   constructor(props) {
     super(props);
