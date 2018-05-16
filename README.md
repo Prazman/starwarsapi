@@ -7,9 +7,8 @@
 Node.js server + npm
 
 
-## Usage
+## Usage (development)
 - clone this repo inside a folder
 - run *npm install* to install the dependencies
 - run *npm start* to start de server
 - Go to localhost:3000 on a local environment
-
